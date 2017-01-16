@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+  <script type="text/javascript" src="validator.js"></script>
+  <script type="text/javascript" src="contact.js"></script>
+
+  <script type="text/javascript">
+
+  handleForm(this.document);
+
+  </script>
+
+  <style type="text/css">
+  input, textarea {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .error {
+    border: 3px solid red;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="contact-form">
+  <form>
+    <div class="form-field">
+      <label for="name">Name: </label>
+      <input class="error" id ="name" type="text" name="name">
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email: </label>
+      <input id="email" type="text" name="email">
+    </div>
+
+    <div class="form-field">
+      <label for="message">Message: </label>
+      <textarea id="message" name="message"></textarea>
+    </div>
+
+    <input class="submit-button" type="submit" name="submit" value="Save">
+  </form>
+</div>
+
+
+</body>
+</html>
