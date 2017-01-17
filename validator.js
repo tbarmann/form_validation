@@ -80,6 +80,15 @@ var Validator = (function() {
     this.$submit.removeClass('loading');
     $field.parent().addClass('error');
     $field.focus();
+
+    var fieldType = $field.attr('type');
+    var message =  'A value is required.';
+
+    if (fieldType === 'email') {
+      message = 'A valid email address is required.'
+    } 
+    $field.after('<div class="error-message">' + message + '</div>');
+
     return window.scrollTo(0, $field.offset().top);
   };
 

@@ -8,13 +8,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 
   <script type="text/javascript" src="validator.js"></script>
-  <script type="text/javascript" src="contact.js"></script>
-
-  <script type="text/javascript">
-
-  handleForm(this.document);
-
-  </script>
 
   <style type="text/css">
   input, textarea {
@@ -34,22 +27,45 @@
   <form>
     <div class="form-field">
       <label for="name">Name: </label>
-      <input class="error" id ="name" type="text" name="name">
+      <input class="" id ="name" type="text" name="name" value="Donald Duck">
     </div>
 
     <div class="form-field">
       <label for="email">Email: </label>
-      <input id="email" type="text" name="email">
+      <input id="email" type="email" name="email" value="">
     </div>
 
     <div class="form-field">
       <label for="message">Message: </label>
-      <textarea id="message" name="message"></textarea>
+      <textarea id="message" name="message">No Message</textarea>
     </div>
 
     <input class="submit-button" type="submit" name="submit" value="Save">
   </form>
 </div>
+
+ <script type="text/javascript">
+
+  function handleForm(e) {
+    e.preventDefault();
+    console.log('submitted');
+  }
+
+  $('.contact-form form .submit-button').on('click', function(e) {
+      e.preventDefault();
+      var $contactForm = $('.contact-form form');
+      var $submit = $('.contact-form .submit-button');
+      var data = $contactForm.serializeArray();
+      var validate = new Validator($contactForm, $submit);
+      $contactForm.find('.form-field').removeClass('error');
+      $submit.addClass('loading');
+      validate.run();
+
+  }
+
+  );
+
+  </script>
 
 
 </body>
